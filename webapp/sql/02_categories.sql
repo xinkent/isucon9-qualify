@@ -1,6 +1,6 @@
 use `isucari`;
 
-INSERT INTO categories (`id`,`parent_id`,`category_name`) VALUES
+INSERT INTO categories (`id`,`parent_id`,`category_name`, `parent_category_name`) VALUES
 (1,0,"ソファー",NULL),
 (2,1,"一人掛けソファー","ソファー"),
 (3,1,"二人掛けソファー", "ソファー"),

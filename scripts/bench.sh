@@ -8,7 +8,5 @@ sudo systemctl restart mysql
 
 sleep 10
 
-# sudo systemctl status mysql
-
 # ベンチ実行
 cd ~/isucari; ./bin/benchmarker -target-url http://127.0.0.1:80

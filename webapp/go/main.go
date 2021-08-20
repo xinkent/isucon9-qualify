@@ -904,12 +904,12 @@ func getTransactions(w http.ResponseWriter, r *http.Request) {
 				"categories.id as category_id,"+
 				"categories.parent_id as category_parent_id,"+
 				"categories.category_name as categories_category_name,"+
-				"created_at,"+
+				"items.created_at,"+
 				"categories.parent_category_name as parent_category_name FROM `items` "+
 				"JOIN `users` AS sellers on `items.seller_id` = `sellers.id` "+
 				"JOIN `categories` on `items.category_id` = `categories.id` "+
 				"JOIN `users` AS buyers on `items.buyer_id` = `buyers.id`"+
-				" WHERE (`seller_id` = ? OR `buyer_id` = ?) AND `status` IN (?,?,?,?,?) AND (`created_at` < ?  OR (`created_at` <= ? AND `id` < ?)) ORDER BY `created_at` DESC, `id` DESC LIMIT ?",
+				" WHERE (`seller_id` = ? OR `buyer_id` = ?) AND `status` IN (?,?,?,?,?) AND (`items.created_at` < ?  OR (`items.created_at` <= ? AND `id` < ?)) ORDER BY `items.created_at` DESC, `id` DESC LIMIT ?",
 			user.ID,
 			user.ID,
 			ItemStatusOnSale,
@@ -940,12 +940,12 @@ func getTransactions(w http.ResponseWriter, r *http.Request) {
 				"categories.id as category_id,"+
 				"categories.parent_id as category_parent_id,"+
 				"categories.category_name as categories_category_name,"+
-				"created_at, "+
+				"items.created_at, "+
 				"categories.parent_category_name as parent_category_name FROM `items` "+
 				"JOIN `users` AS sellers on `items.seller_id` = `sellers.id` "+
 				"JOIN `categories` on `items.category_id` = `categories.id` "+
 				"JOIN `users` AS buyers on `items.buyer_id` = `buyers.id` "+
-				"WHERE (`seller_id` = ? OR `buyer_id` = ?) AND `status` IN (?,?,?,?,?) ORDER BY `created_at` DESC, `id` DESC LIMIT ?",
+				"WHERE (`seller_id` = ? OR `buyer_id` = ?) AND `status` IN (?,?,?,?,?) ORDER BY `items.created_at` DESC, `id` DESC LIMIT ?",
 			user.ID,
 			user.ID,
 			ItemStatusOnSale,

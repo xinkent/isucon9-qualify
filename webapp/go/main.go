@@ -895,7 +895,7 @@ func getTransactions(w http.ResponseWriter, r *http.Request) {
 	if itemID > 0 && createdAt > 0 {
 		// paging
 		err := tx.Select(&itemDetailRaws,
-			"SELECT id, seller_id, sellers.account_name as seller_account_name,"+
+			"SELECT items.id, seller_id, sellers.account_name as seller_account_name,"+
 				"seller.num_sell_items as seller_num_sell_items,"+
 				"buyer.id as buyer_id,"+
 				"buyer.account_name as buyer_account_name,"+
@@ -931,7 +931,7 @@ func getTransactions(w http.ResponseWriter, r *http.Request) {
 	} else {
 		// 1st page
 		err := tx.Select(&itemDetailRaws,
-			"SELECT id, seller_id, sellers.account_name as seller_account_name,"+
+			"SELECT items.id, seller_id, sellers.account_name as seller_account_name,"+
 				"seller.num_sell_items as seller_num_sell_items,"+
 				"buyer.id as buyer_id,"+
 				"buyer.account_name as buyer_account_name,"+

@@ -896,10 +896,10 @@ func getTransactions(w http.ResponseWriter, r *http.Request) {
 		// paging
 		err := tx.Select(&itemDetailRaws,
 			"SELECT items.id, seller_id, sellers.account_name as seller_account_name,"+
-				"seller.num_sell_items as seller_num_sell_items,"+
-				"buyer.id as buyer_id,"+
-				"buyer.account_name as buyer_account_name,"+
-				"buyer.num_sell_items as buyer_num_sell_items,"+
+				"sellers.num_sell_items as seller_num_sell_items,"+
+				"buyers.id as buyer_id,"+
+				"buyers.account_name as buyer_account_name,"+
+				"buyers.num_sell_items as buyer_num_sell_items,"+
 				"status, name, price, description, image_name,"+
 				"categories.id as category_id,"+
 				"categories.parent_id as category_parent_id,"+
@@ -932,10 +932,10 @@ func getTransactions(w http.ResponseWriter, r *http.Request) {
 		// 1st page
 		err := tx.Select(&itemDetailRaws,
 			"SELECT items.id, seller_id, sellers.account_name as seller_account_name,"+
-				"seller.num_sell_items as seller_num_sell_items,"+
-				"buyer.id as buyer_id,"+
-				"buyer.account_name as buyer_account_name,"+
-				"buyer.num_sell_items as buyer_num_sell_items,"+
+				"sellers.num_sell_items as seller_num_sell_items,"+
+				"buyers.id as buyer_id,"+
+				"buyers.account_name as buyer_account_name,"+
+				"buyers.num_sell_items as buyer_num_sell_items,"+
 				"status, name, price, description, image_name,"+
 				"categories.id as category_id,"+
 				"categories.parent_id as category_parent_id,"+

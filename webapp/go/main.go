@@ -941,7 +941,7 @@ func getTransactions(w http.ResponseWriter, r *http.Request) {
 				"categories.parent_id as category_parent_id,"+
 				"categories.category_name as categories_category_name,"+
 				"created_at, "+
-				"categories.parent_category_name as parent_category_name FROM `items`,"+
+				"categories.parent_category_name as parent_category_name FROM `items` "+
 				"JOIN `users` AS sellers on `items.seller_id` = `sellers.id` "+
 				"JOIN `categories` on `items.category_id` = `categories.id` "+
 				"JOIN `users` AS buyers on `items.buyer_id` = `buyers.id` "+
